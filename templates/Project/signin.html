@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+{% extends "Project/base.html" %}
+{% load widget_tweaks %}
+{% block content %}
+<form class="row g-3" method="POST">
+    {% csrf_token %}
+    <div class="row mb-3">
+        <label for="inputUserame" class="col-sm-2 col-form-label">Username</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="inputUserame" name="inputUserame" placeholder="Username" value="{{cookie_uname_value}}">
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+        <div class="col-sm-10">
+            <input type="password" class="form-control" id="inputPassword3" name="inputPassword" placeholder="Password">
+        </div>
+        <br><br>
+        <a href="password_reset">Forget Password?</a>
+    </div>
+    <br>
+
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="Remember Me" id="chk" name="chk">
+        <label class="form-check-label" for="chk">
+          Remember Me on this computer / device
+        </label>
+    </div>
+
+    <br>
+
+    <button class="btn btn-primary" type="submit">SignIn</button>
+    <a href="signup" class="d-block text-center mt2 small">SignUp</a>
+</form>
+{% endblock %}
